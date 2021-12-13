@@ -6,9 +6,11 @@ import {
 } from '@/core/usecases/unit/find_by_id';
 import { FindUnitByIdController } from '@/Application/controllers/unit';
 import { mock, MockProxy } from 'jest-mock-extended';
+import { Validation } from '@/Application/protocols';
 
 describe('Find unit by id controller', () => {
   let mockFindUnitByIdUseCase: MockProxy<IFindUnitByIdUseCase>;
+  let mockValidation: MockProxy<Validation>;
   let findUnitByIdController: FindUnitByIdController;
 
   const mockFindUnitByIdUseCaseRequestDTO: FindUnitByIdUseCaseRequestDTO = {
@@ -24,13 +26,16 @@ describe('Find unit by id controller', () => {
 
   beforeEach(() => {
     mockFindUnitByIdUseCase = mock<IFindUnitByIdUseCase>();
+    mockValidation = mock<Validation>();
+    
     mockFindUnitByIdUseCase.execute.mockResolvedValue(mockFindUnitByIdUseCaseResponseDTO);
 
-    findUnitByIdController = new FindUnitByIdController(mockFindUnitByIdUseCase);
+    findUnitByIdController = new FindUnitByIdController(mockFindUnitByIdUseCase, mockValidation);
   });
 
   it('should call find unit by id use case', async () => {
     mockFindUnitByIdUseCase.execute.mockResolvedValue(mockFindUnitByIdUseCaseResponseDTO);
+    mockValidation.validate.mockReturnValue(undefined);
     const result = await findUnitByIdController.handle(mockFindUnitByIdUseCaseRequestDTO);
 
     const mockResultHttp = {
