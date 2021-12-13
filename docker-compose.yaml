@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    container_name: tractian-app
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+    command: >
+      sh -c "npm i && npm run build && npm run start"
+    links:
+      - db
+    environment:
+      - USER_DB=root
+      - PASS_DB=root
+      - PORT=3000
+  db:
+    image: mongo:5.0.5
+    container_name: dbFinal
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    ports:
+      - 27017:27017
