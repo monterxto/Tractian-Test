@@ -8,15 +8,16 @@
 - Multer
 
 ## Start Application
-I'm using docker compose to start the application together with mongodb.
-To start the application use:
-`docker-compose up -d`
+I'm using docker compose to start the application together with mongodb.<br>
+To start the application use:<br>
+`docker-compose up -d`<br>
 You can check the application logs until it starts up.
 Wait until the initialization finishes.
 
 ## Start unit tests
-You must have installed the modules before with:
-`npm i`
+You must have installed the modules before with:<br>
+`npm i`<br>
+After:<br>
 `npm run test:unit`
 
 ## Postman Documentation
