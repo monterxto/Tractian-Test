@@ -23,4 +23,4 @@ You must have installed the modules before with:
 [Documentation online](https://documenter.getpostman.com/view/12863884/UVR5rpYn)
 
 ## Postman collection
-[Collection online][https://www.postman.com/monterxto/workspace/challenge/collection/12863884-8aaa4c48-cda1-47ed-92f5-55db7474544d]
+[Collection online](https://www.postman.com/monterxto/workspace/challenge/collection/12863884-8aaa4c48-cda1-47ed-92f5-55db7474544d)
